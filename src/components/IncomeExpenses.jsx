@@ -10,10 +10,9 @@ const IncomeExpenses = () => {
 		.reduce((a, b) => (a += b), 0)
 		.toFixed(2);
 
-	const expense = amount
-		.filter((item) => item < 0)
-		.reduce((a, b) => (a += b), 0)
-		.toFixed(2);
+	const expense = (
+		amount.filter((item) => item < 0).reduce((a, b) => (a += b), 0) * -1
+	).toFixed(2);
 
 	return (
 		<div className="inc-exp-container">
@@ -23,7 +22,7 @@ const IncomeExpenses = () => {
 			</div>
 			<div>
 				<h4>Expense</h4>
-				<p className="money minus">&#8377;{Math.abs(expense)}</p>
+				<p className="money minus">&#8377;{expense}</p>
 			</div>
 		</div>
 	);

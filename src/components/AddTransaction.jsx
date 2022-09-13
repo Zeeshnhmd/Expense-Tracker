@@ -5,7 +5,7 @@ import GlobalState from '../context/GlobalState';
 const AddTransaction = () => {
 	const { addTransaction } = useContext(GlobalState);
 	const [text, setText] = useState('');
-	const [amount, setAmount] = useState();
+	const [amount, setAmount] = useState('');
 
 	const handleText = (e) => {
 		setText(e.target.value);
@@ -23,8 +23,14 @@ const AddTransaction = () => {
 			text,
 			amount: +amount,
 		};
+		console.log(newTransaction);
 		addTransaction(newTransaction);
+		setText('');
+		setAmount('');
 	};
+
+	console.log('text', text);
+	console.log('amount', amount);
 
 	return (
 		<div>
@@ -51,7 +57,9 @@ const AddTransaction = () => {
 						placeholder="Enter amount..."
 					/>
 				</div>
-				<button className="btn">Add transaction</button>
+				<button type="submit" className="btn" disabled={!text || !amount}>
+					Add transaction
+				</button>
 			</form>
 		</div>
 	);

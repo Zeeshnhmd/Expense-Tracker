@@ -104,6 +104,16 @@ input[type='number'] {
 .delete-btn:focus {
 	outline: 0;
 }
+.btn:disabled {
+	background-color: #cccccc;
+	color: #333;
+	cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+	transform: scale(1);
+	opacity: 1;
+}
 
 .list {
 	list-style-type: none;
