@@ -10,7 +10,7 @@ const initialState = {
 	],
 };
 
-export const GlobalState = createContext();
+const GlobalState = createContext();
 
 export const GlobalProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(appReducer, initialState);
@@ -19,3 +19,4 @@ export const GlobalProvider = ({ children }) => {
 		<GlobalState.Provider value={{ ...state }}>{children}</GlobalState.Provider>
 	);
 };
+export default GlobalState;
