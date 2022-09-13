@@ -1,20 +1,11 @@
-import React, { useContext } from 'react';
-import GlobalState from '../context/GlobalState';
+import React from 'react';
 
 const IncomeExpenses = () => {
-	const { transactions } = useContext(GlobalState);
-	const amount = transactions.map((transaction) => transaction.amount);
-	const total = amount.reduce((a, b) => (a += b), 0).toFixed(2);
-
-	/**
-	 * * here we are using toFixed(2) because
-	 */
-
 	return (
 		<div className="inc-exp-container">
 			<div>
 				<h4>Income</h4>
-				<p className="money plus">+&#8377;{total}</p>
+				<p className="money plus">+&#8377;</p>
 			</div>
 			<div>
 				<h4>Expense</h4>
